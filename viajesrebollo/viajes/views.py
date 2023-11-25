@@ -13,3 +13,12 @@ def create_activity(request):
 
 def create_trip_plan(request):
     return HttpResponse("Crear plan de viaje")
+
+def mod_trip_plan(request):
+    return HttpResponse("Modificar plan de viaje")
+
+def mod_activity(request):
+    return HttpResponse("Modificar actividad")
+
+def mod_package(request):
+    return HttpResponse("Modificar paquete de viaje")
