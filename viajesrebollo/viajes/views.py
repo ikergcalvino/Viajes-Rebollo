@@ -3,7 +3,7 @@ from django.http import HttpResponse
 # Create your views here.
 
 def index(request):
-    return HttpResponse("Página de inicio")
+    return render(request, "viajes/index.html", context=None)
 
 def create_package(request):
     return HttpResponse("Crear paquete de viaje")
