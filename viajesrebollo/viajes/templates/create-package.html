@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Paquete</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, textarea, select, button {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        .botones {
+            display: flex;
+            justify-content: space-between; 
+            margin-top: 20px; 
+        }
+
+        button[type="submit"], .btn-cancelar {
+            width: auto; 
+            padding: 8px 15px; 
+            border-radius: 4px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button[type="submit"] {
+            background-color: #0056b3;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #003d82;
+        }
+
+        .btn-cancelar {
+            background-color: #d9534f; 
+        }
+
+        .btn-cancelar:hover {
+            background-color: #c9302c; 
+        }
+
+
+        .dropdown-check-list {
+            display: inline-block;
+            width: 100%;
+        }
+
+        .dropdown-check-list .anchor {
+            position: relative;
+            cursor: pointer;
+            display: block;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            background-color: #f0f0f0;
+        }
+
+        .dropdown-check-list .anchor:after {
+            content: '';
+            position: absolute;
+            border-left: 2px solid black;
+            border-top: 2px solid black;
+            padding: 5px;
+            right: 10px;
+            top: 20%;
+            transform: rotate(135deg); 
+        }
+
+        .dropdown-check-list .anchor.opened:after {
+            transform: rotate(225deg);
+        }
+
+        .dropdown-check-list ul.items {
+            padding: 2px;
+            display: none;
+            margin: 0;
+            border: 1px solid #ccc;
+            border-top: none;
+            background-color: white;
+        }
+
+        .dropdown-check-list ul.items li {
+            display: flex;
+            justify-content: space-between; 
+        }
+
+        .dropdown-check-list ul.items li .checkbox-container {
+            min-width: 20px; 
+            text-align: right; 
+        }
+
+        .dropdown-check-list ul.items li label {
+            flex-grow: 1; 
+        }
+
+        .dropdown-check-list.visible ul.items {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h2>Crear un paquete de actividades</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+
+
+        <div>
+            <label for="id_name">Nombre:</label>
+            {{ form.name }}
+        </div>
+        <div>
+            <label for="id_description">Descripción:</label>
+            {{ form.description }}
+        </div>
+
+        <div class="dropdown-check-list" tabindex="100">
+            <span class="anchor" onclick="toggleDropdownCheckList('activities')">Seleccionar actividades</span>
+            <ul class="items" id="activities">
+                {% for checkbox in form.activities %}
+                    <li>
+                        <label>
+                            {{ checkbox.choice_label }} <!-- Etiqueta de la casilla -->
+                        </label>
+                        <div class="checkbox-container">
+                            {{ checkbox.tag }} <!-- Casilla de verificación -->
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- Botones del formulario -->
+        <div class="botones">
+            <button type="button" class="btn-cancelar" onclick="location.href='{% url 'index' %}'">Cancelar</button>
+            <button type="submit">Guardar</button>
+        </div>
+    </form>
+
+    <script>
+        function toggleDropdownCheckList(id) {
+            var list = document.getElementById(id);
+            var anchor = document.querySelector('.dropdown-check-list .anchor');
+            if (list.style.display === "none" || list.style.display === "") {
+                list.style.display = "block";
+                anchor.classList.add('opened');
+            } else {
+                list.style.display = "none";
+                anchor.classList.remove('opened');
+            }
+        }
+    </script>
+</body>
+</html>

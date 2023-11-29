@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Planes de Viaje</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .trip-plan-container {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .trip-plan-container:hover {
+            transform: scale(1.03);
+        }
+
+        h2 {
+            color: #007bff;
+            font-size: 1.5em;
+            text-align: center;
+        }
+
+        h2 a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        h2 a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        p {
+            font-size: 1em;
+            color: #555;
+        }
+
+        .no-trip-plans {
+            text-align: center;
+            color: #888;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1>Listado de planes de viaje</h1>
+    <div>
+        {% for trip_plan in trip_plans %}
+            <div class="trip-plan-container">
+                <h2><a href="{% url 'tripplan_detail' trip_plan.id %}">{{ trip_plan.name }}</a></h2>
+                <p>{{ trip_plan.description }}</p>
+            </div>
+        {% empty %}
+            <p class="no-trip-plans">No hay planes de viaje disponibles.</p>
+        {% endfor %}
+    </div>
+</body>
+</html>

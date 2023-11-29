@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Activity</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: auto;
+        }
+
+        form p {
+            margin: 10px 0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, textarea, select, button {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        .botones button {
+            width: auto; 
+            padding: 8px 15px;
+        }
+
+        button[type="submit"] {
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #003d82;
+        }
+
+        .btn-cancelar {
+            background-color: #d9534f; 
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn-cancelar:hover {
+            background-color: #c9302c; 
+        }
+
+        .botones {
+            display: flex;
+            justify-content: space-between; 
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #0056b3;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #003d82;
+        }
+    </style>
+</head>
+<body>
+    <h2>Crear una actividad</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <label for="id_name">Nombre:</label>
+            {{ form.name }}
+        </div>
+
+        <div>
+            <label for="id_description">Descripción:</label>
+            {{ form.description }}
+        </div>
+
+        <div>
+            <label for="id_price">Precio:</label>
+            {{ form.price }}
+        </div>
+
+        <div>
+            <label for="id_init_date">Fecha de inicio:</label>
+            {{ form.init_date }}
+        </div>
+
+        <div>
+            <label for="id_end_date">Fecha de finalización:</label>
+            {{ form.end_date }}
+        </div>
+
+        <div>
+            <label for="id_loc">URL de ubicación:</label>
+            {{ form.loc }}
+        </div>
+        
+        <!-- Contenedor para los botones -->
+        <div class="botones">
+            <button type="button" class="btn-cancelar" onclick="location.href='{% url 'index' %}'">Cancelar</button>
+            <button type="submit">Guardar</button>
+        </div>
+    </form>
+</body>
+</html>

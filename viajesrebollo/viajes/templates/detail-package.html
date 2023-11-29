@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalles del Paquete</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        h1, h2 {
+            color: #333;
+            font-size: 24px;
+            text-align: center;
+
+        }
+
+        p, ul {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 10px 0;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        a {
+            color: #0056b3;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ package.name }}</h1>
+    <p>{{ package.description }}</p>
+    
+    <h2>Actividades incluidas</h2>
+    <ul>
+        {% for activity in package.activities.all %}
+            <li><a href="{% url 'activity_detail' activity.id %}">{{ activity.name }}</a> - {{ activity.description }}</li>
+        {% endfor %}
+    </ul>
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="{% url 'mod_package' package.id %}" style="padding: 10px; background-color: blue; color: white; text-decoration: none; border-radius: 5px;">Modificar Paquete</a>
+    </div>
+    
+
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="{% url 'index' %}">Volver al inicio</a>
+    </div>
+
+
+</body>
+</html>
