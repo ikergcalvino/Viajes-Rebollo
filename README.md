@@ -22,7 +22,7 @@ Una vez instalado, podemos ejecutar Docker desde Visual Studio Code:
 Dentro del contenedor, podemos ejecutar el siguiente script por primera vez para arrancar el servidor:
 
 ```
-sh start.sh
+bash script.sh
 ```
 
 ## Atribuciones
