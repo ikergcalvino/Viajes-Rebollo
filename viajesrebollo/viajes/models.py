@@ -1,6 +1,6 @@
 from django.db import models
 
-# Create your models here.
+
 class Activity(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
@@ -12,12 +12,13 @@ class Activity(models.Model):
     def __str__(self):
         return self.name
 
+
 class Package(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
     activities = models.ManyToManyField(Activity, blank=True)
 
-    def __str__(self) -> str:
+    def __str__(self):
         return self.name
 
 
@@ -27,6 +28,5 @@ class TripPlan(models.Model):
     package = models.ForeignKey(Package, on_delete=models.CASCADE)
     customized_activities = models.ManyToManyField(Activity, blank=True)
 
-
-    def __str__(self) -> str:
+    def __str__(self):
         return self.name

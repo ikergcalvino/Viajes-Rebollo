@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block main_content %}
+
+<h2>Detalles del Paquete: {{ package.name }}</h2>
+
+<p>{{ package.description }}</p>
+
+<h3>Actividades incluidas</h3>
+
+<ul class="activity-list">
+    {% for activity in package.activities.all %}
+    <li><a href="{% url 'activity_details' activity.id %}">{{ activity.name }}</a> - {{ activity.description }}
+    </li>
+    {% endfor %}
+</ul>
+
+<div class="action-button">
+    <a href="{% url 'edit_package' package.id %}">Modificar Paquete</a>
+</div>
+
+<div class="back-to-home">
+    <a href="{% url 'index' %}">Volver al inicio</a>
+</div>
+
+{% endblock %}

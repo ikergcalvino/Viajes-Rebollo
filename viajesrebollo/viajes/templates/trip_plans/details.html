@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block main_content %}
+
+<h2>Detalles del Plan de Viaje: {{ trip_plan.name }}</h2>
+
+<p>{{ trip_plan.description }}</p>
+
+<h2>Paquete asociado</h2>
+
+<p><a href="{% url 'package_details' package.id %}">{{ package.name }}</a></p>
+
+<h2>Actividades personalizadas</h2>
+
+<ul class="activity-list">
+    {% for activity in activities %}
+    <li><a href="{% url 'activity_details' activity.id %}">{{ activity.name }}</a> - {{ activity.description }}
+    </li>
+    {% endfor %}
+</ul>
+
+<div class="action-button">
+    <a href="{% url 'edit_trip_plan' trip_plan.id %}">Modificar Trip Plan</a>
+</div>
+
+<div class="back-to-home">
+    <a href="{% url 'index' %}">Volver al inicio</a>
+</div>
+
+{% endblock %}

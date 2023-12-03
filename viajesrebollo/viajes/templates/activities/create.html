@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block main_content %}
+
+<h2>Crear una actividad</h2>
+
+<form method="POST">
+
+    {% csrf_token %}
+
+    <div>
+        <label for="name">Nombre de la actividad:</label>
+        {{ form.name }}
+    </div>
+
+    <div>
+        <label for="description">Descripción:</label>
+        {{ form.description }}
+    </div>
+
+    <div>
+        <label for="price">Precio:</label>
+        {{ form.price }}
+    </div>
+
+    <div>
+        <label for="init_date">Fecha de inicio:</label>
+        {{ form.init_date }}
+    </div>
+
+    <div>
+        <label for="end_date">Fecha de finalización:</label>
+        {{ form.end_date }}
+    </div>
+
+    <div>
+        <label for="loc">URL de ubicación:</label>
+        {{ form.loc }}
+    </div>
+
+    <div class="botones">
+        <button type="button" class="btn-cancelar" onclick="location.href='{% url 'index' %}'">Cancelar</button>
+        <button type="submit">Guardar</button>
+    </div>
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block main_content %}
+
+<h2>Detalles de la Actividad: {{ activity.name }}</h2>
+
+<p class="activity-description">{{ activity.description }}</p>
+
+<p>Precio: {{ activity.price }}</p>
+
+<p>Fecha de inicio: {{ activity.init_date }}</p>
+
+<p>Fecha de fin: {{ activity.end_date }}</p>
+
+<p>Ubicación: <a href="{{ activity.loc }}">{{ activity.loc }}</a></p>
+
+<div class="action-button">
+    <a href="{% url 'edit_activity' activity.id %}">Modificar Actividad</a>
+</div>
+
+<div class="back-to-home">
+    <a href="{% url 'index' %}">Volver al inicio</a>
+</div>
+
+{% endblock %}

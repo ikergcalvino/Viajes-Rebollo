@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block main_content %}
+
+<h2>Crear un paquete de actividades</h2>
+
+<form method="POST">
+
+    {% csrf_token %}
+
+    {{ form.non_field_errors }}
+
+    <div>
+        <label for="id_name">Nombre:</label>
+        {{ form.name }}
+    </div>
+
+    <div>
+        <label for="id_description">Descripción:</label>
+        {{ form.description }}
+    </div>
+
+    <div class="dropdown-check-list" tabindex="100">
+        <span class="anchor" onclick="toggleDropdownCheckList('activities')">Seleccionar actividades</span>
+        <ul class="items" id="activities">
+            {% for checkbox in form.activities %}
+            <li>
+                <label>
+                    {{ checkbox.choice_label }}
+                </label>
+                <div class="checkbox-container">
+                    {{ checkbox.tag }}
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="botones">
+        <button type="button" class="btn-cancelar" onclick="location.href='{% url 'index' %}'">Cancelar</button>
+        <button type="submit">Guardar</button>
+    </div>
+
+</form>
+
+{% endblock %}

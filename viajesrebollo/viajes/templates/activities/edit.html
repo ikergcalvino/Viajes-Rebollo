@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block main_content %}
+
+<h2>Modificar Actividad</h2>
+
+<form method="POST">
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <div class="botones">
+        <button type="button" class="btn-cancelar" onclick="location.href='{% url 'index' %}'">Cancelar</button>
+        <button type="submit">Guardar cambios</button>
+    </div>
+
+</form>
+
+{% endblock %}

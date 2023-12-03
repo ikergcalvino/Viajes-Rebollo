@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block main_content %}
+
+<h2>Listado de planes de viaje</h2>
+
+<div>
+    {% for trip_plan in trip_plans %}
+
+    <article class="trip-plan-container">
+        <h2><a href="{% url 'trip_plan_details' trip_plan.id %}">{{ trip_plan.name }}</a></h2>
+        <p>{{ trip_plan.description }}</p>
+    </article>
+
+    {% empty %}
+
+    <p class="no-trip-plans">No hay planes de viaje disponibles.</p>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}
