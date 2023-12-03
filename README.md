@@ -16,7 +16,7 @@ Para ejecutar la web, debemos tener instalado el servidor de despliegue de [Dock
 Una vez instalado, podemos ejecutar Docker desde Visual Studio Code:
 
 ```
-> Remote-Containers: Rebuild and Reopen in Container
+> Dev Containers: Rebuild and Reopen in Container
 ```
 
 Dentro del contenedor, podemos ejecutar el siguiente script por primera vez para arrancar el servidor:
