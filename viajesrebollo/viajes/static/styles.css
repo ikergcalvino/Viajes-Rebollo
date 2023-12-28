@@ -40,7 +40,7 @@ main {
     justify-content: center;
 }
 
-button {
+#button-container a {
     width: 200px;
     height: 200px;
     max-width: 250px;
@@ -51,16 +51,31 @@ button {
     flex-direction: column;
     align-items: center;
     position: relative;
+    background-color: beige;
+    border-radius: 18px;
+    transition: all 0.3s ease; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+
 }
 
-button img {
+#button-container a:hover {
+    width: 220px; 
+    height: 220px; 
+    max-width: 270px; 
+    background-color: rgb(252, 252, 211);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#button-container a img {
     max-width: 50%;
     margin: 10px;
 }
 
-button h3 {
+#button-container a h3 {
     position: absolute;
     bottom: 10px;
+    color: black;
 }
 
 footer {
@@ -73,7 +88,7 @@ footer {
 }
 
 footer {
-    text-align: right;
+    text-align: left;
 }
 
 footer p {

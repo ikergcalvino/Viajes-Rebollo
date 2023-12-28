@@ -5,11 +5,11 @@ from django.core.validators import URLValidator
 
 
 def validate_google_maps_url(value):
-    if not value.startswith("https://www.google.com/maps/"):
+    if not value.startswith("https://www.google.com/maps/place/"):
         raise ValidationError("La URL debe ser de Google Maps.")
     URLValidator()(value)
 
-
+    
 class NewActivity(forms.ModelForm):
     loc = forms.URLField(validators=[validate_google_maps_url])
 
@@ -20,6 +20,8 @@ class NewActivity(forms.ModelForm):
         widgets = {
             'init_date': forms.DateInput(attrs={'type': 'date'}),
             'end_date': forms.DateInput(attrs={'type': 'date'}),
+            'description': forms.Textarea(attrs={'style': 'resize: none;'}),
+
         }
 
 
@@ -46,6 +48,10 @@ class NewPackage(forms.ModelForm):
     class Meta:
         model = Package
         fields = ['name', 'description', 'activities']
+        widgets = {
+            'description': forms.Textarea(attrs={'style': 'resize: none;'}),
+        }
+        
 
     def clean(self):
         cleaned_data = super().clean()
@@ -61,6 +67,9 @@ class ModPackage(forms.ModelForm):
     class Meta:
         model = Package
         fields = ['name', 'description', 'activities']
+        widgets = {
+            'description': forms.Textarea(attrs={'style': 'resize: none;'}),
+        }
 
     def __init__(self, *args, **kwargs):
         super(ModPackage, self).__init__(*args, **kwargs)
@@ -82,7 +91,8 @@ class NewTripPlan(forms.ModelForm):
         model = TripPlan
         fields = ['name', 'description', 'package', 'customized_activities']
         widgets = {
-            'customized_activities': forms.CheckboxSelectMultiple()
+            'customized_activities': forms.CheckboxSelectMultiple(),
+            'description': forms.Textarea(attrs={'style': 'resize: none;'}),
         }
 
     def __init__(self, *args, **kwargs):
@@ -95,10 +105,13 @@ class ModTripPlan(forms.ModelForm):
         model = TripPlan
         fields = ['name', 'description', 'package', 'customized_activities']
         widgets = {
-            'customized_activities': forms.CheckboxSelectMultiple()
+            'customized_activities': forms.CheckboxSelectMultiple(),
+            'description': forms.Textarea(attrs={'style': 'resize: none;'}),
+
         }
 
     def __init__(self, *args, **kwargs):
         super(ModTripPlan, self).__init__(*args, **kwargs)
         self.fields['package'].queryset = Package.objects.all()
         self.fields['customized_activities'].queryset = Activity.objects.all()
+
