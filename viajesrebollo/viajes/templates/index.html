@@ -7,19 +7,19 @@
 <h2>Menú de gestión</h2>
 
 <div id="button-container">
-    <button onclick="location.href='{% url 'create_activity' %}'">
+    <button href="{% url 'create_activity' %}">
         <img src="{% static 'agregar.svg' %}">
         <h3>Crear actividad</h3>
     </button>
-    <button onclick="location.href='{% url 'create_package' %}'">
+    <button href="{% url 'create_package' %}">
         <img src="{% static 'maleta.svg' %}">
         <h3>Crear paquete de viaje</h3>
     </button>
-    <button onclick="location.href='{% url 'create_trip_plan' %}'">
+    <button href="{% url 'create_trip_plan' %}">
         <img src="{% static 'mapa.svg' %}">
         <h3>Crear plan de viaje</h3>
     </button>
-    <button onclick="location.href='{% url 'list_trip_plans' %}'">
+    <button href="{% url 'list_trip_plans' %}">
         <img src="{% static 'lista.svg' %}">
         <h3>Listar planes</h3>
     </button>
