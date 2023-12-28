@@ -14,7 +14,9 @@
 
 <body>
     <header>
-        <div class="logo"><img src="{% static 'vr.png' %}" alt="Viajes Rebollo Logo"></div>
+        <div class="logo">
+            <a href="{% url 'index' %}"><img src="{% static 'vr.png' %}" alt="Viajes Rebollo Logo"></a>
+        </div>
         <div class="header-text">
             <h1>Viajes Rebollo</h1>
             <p>Agencia de viajes con más de 30 años de historia en A Coruña</p>
@@ -26,8 +28,7 @@
     </main>
 
     <footer>
-        <p><strong>@Viajes Rebollo</strong>  - <i> C. Fonseca, 115 15004 - A Coruña </i></p>
-
+        <p><strong>Viajes Rebollo</strong> - <i>C. Fonseca, 115 15004</i> - A Coruña</p>
     </footer>
 
     <script src="{% static 'scripts.js' %}" async></script>
