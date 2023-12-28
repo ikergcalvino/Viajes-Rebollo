@@ -3,7 +3,7 @@ from django.conf import settings
 from django.urls import path
 from .views.views import index
 from .views.activities import manage_activity, activity_details
-from .views.packages import manage_package, package_details
+from .views.packages import manage_package, package_details, list_packages
 from .views.trip_plans import manage_trip_plan, trip_plan_details, list_trip_plans
 
 
@@ -21,6 +21,8 @@ urlpatterns = [
          manage_package, name="edit_package"),
     path("package/<int:package_id>/",
          package_details, name="package_details"),
+     path("list_packages", list_packages, name="list_packages"),
+
 
     path("trip-plan/", manage_trip_plan, name="create_trip_plan"),
     path("trip-plan/<int:trip_plan_id>/edit/",

@@ -1,0 +1,13 @@
+#nombre {
+    /* Estilos para el elemento con id "nombre" */
+    color: red;
+    font-size: 16px;
+    /* Agrega más estilos según tus necesidades */
+}
+
+#nombre i {
+    /* Estilos para el elemento i dentro del elemento con id "nombre" */
+    margin-left: 5px; /* Un pequeño margen a la izquierda del icono */
+    color: green;    /* Color del icono */
+    /* Agrega más estilos según tus necesidades */
+}

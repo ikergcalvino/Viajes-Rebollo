@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block main_content %}
+
+<head>
+    <script src="https://kit.fontawesome.com/ffe9fc53ba.js" crossorigin="anonymous"></script>
+</head>
+
+<h2>Lista de paquetes: </h2>
+
+<div>
+    {% for package in packages %}
+        <article class="package-container">
+            <h2 id="nombre">
+                {{ package.name }} 
+                <a href="{% url 'edit_package' package_id=package.id %}">
+                    <i class="fas fa-pencil-alt"></i>
+                </a>
+                <a href="{% url 'see_package' %}">
+                    <i class="fas fa-eye"></i>
+                </a>
+            </h2>
+        </article>
+    {% empty %}
+        <p class="no-trip-plans">No hay paquetes disponibles.</p>
+    {% endfor %}
+</div>
+
+{% endblock %}
