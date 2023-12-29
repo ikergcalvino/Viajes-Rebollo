@@ -2,7 +2,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.urls import path
 from .views.views import index
-from .views.activities import manage_activity, activity_details, list_activities
+from .views.activities import manage_activity, activity_details, list_activities, manage_activity2
 from .views.packages import manage_package, package_details, list_packages
 from .views.trip_plans import manage_trip_plan, trip_plan_details, list_trip_plans
 
@@ -11,6 +11,7 @@ urlpatterns = [
     path("", index, name="index"),
 
     path("activity/", manage_activity, name="create_activity"),
+    path("activity2/", manage_activity2, name="create_activity2"),
     path("activity/<int:activity_id>/edit/",
          manage_activity, name="edit_activity"),
     path("activity/<int:activity_id>/",

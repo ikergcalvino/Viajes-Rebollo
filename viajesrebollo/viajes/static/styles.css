@@ -72,11 +72,13 @@ main {
     font-size: 96px;
 }
 
-.button-container a h3 {
-    position: absolute;
-    bottom: 10px;
+h3 {
     color: black;
+    font-size: 15px;
+    text-align: center;
+    margin-bottom: 5px;
 }
+
 
 footer {
     width: 100%;
@@ -325,4 +327,38 @@ textarea {
 #nombre i {
     margin-left: 10px;
     color: green;
+}
+
+.div-btn-crear-actividad {
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+.btn-crear-actividad {
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px; /* Puedes ajustar el valor según sea necesario */
+    margin-bottom: 10px; /* Puedes ajustar el valor según sea necesario */
+    text-decoration: none;
+
+}
+
+
+.btn-crear-actividad:hover {
+    background-color: #003d82;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px; /* Puedes ajustar el valor según sea necesario */
+    margin-bottom: 10px; /* Puedes ajustar el valor según sea necesario */
 }
