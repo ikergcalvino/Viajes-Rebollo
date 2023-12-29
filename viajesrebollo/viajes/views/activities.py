@@ -22,3 +22,8 @@ def manage_activity(request, activity_id=None):
 def activity_details(request, activity_id):
     activity = get_object_or_404(Activity, pk=activity_id)
     return render(request, 'activities/details.html', {'activity': activity})
+
+
+def list_activities(request):
+    activities = Activity.objects.all()
+    return render(request, 'activities/list.html', {'activities': activities})

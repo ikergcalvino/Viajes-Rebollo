@@ -6,28 +6,34 @@
 
 <h2>Menú de gestión</h2>
 
-<div id="button-container">
+<div class="button-container">
     <a href="{% url 'create_activity' %}">
-        <img src="{% static 'agregar.svg' %}">
+        <i class="fa-solid fa-circle-plus"></i>
         <h3>Crear actividad</h3>
     </a>
     <a href="{% url 'create_package' %}">
-        <img src="{% static 'maleta.svg' %}">
+        <i class="fa-solid fa-suitcase"></i>
         <h3>Crear paquete de viaje</h3>
     </a>
     <a href="{% url 'create_trip_plan' %}">
-        <img src="{% static 'mapa.svg' %}">
+        <i class="fa-solid fa-map-location-dot"></i>
         <h3>Crear plan de viaje</h3>
-    </a>
-    <a href="{% url 'list_trip_plans' %}">
-        <img src="{% static 'lista.svg' %}">
-        <h3>Listar planes</h3>
-    </a>
-    <a href="{% url 'list_packages' %}">
-        <img src="{% static 'lista.svg' %}">
-        <h3>Listar paquetes</h3>
     </a>
 </div>
 
+<div class="button-container">
+    <a href="{% url 'list_activities' %}">
+        <i class="fa-solid fa-list-ul"></i>
+        <h3>Listar actividades</h3>
+    </a>
+    <a href="{% url 'list_packages' %}">
+        <i class="fa-solid fa-list-ul"></i>
+        <h3>Listar planes</h3>
+    </a>
+    <a href="{% url 'list_trip_plans' %}">
+        <i class="fa-solid fa-list-ul"></i>
+        <h3>Listar paquetes</h3>
+    </a>
+</div>
 
 {% endblock %}

@@ -25,8 +25,6 @@ def package_details(request, package_id):
     return render(request, 'packages/details.html', {'package': package, 'activities': activities})
 
 
-
 def list_packages(request):
     packages = Package.objects.all()
     return render(request, 'packages/list.html', {'packages': packages})
-
