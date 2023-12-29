@@ -42,9 +42,3 @@ Dentro del contenedor, podemos ejecutar el siguiente script por primera vez para
 ```
 bash script.sh
 ```
-
-## Atribuciones
-
-### Icono
-
-- Imagen de [Greg Stevenson](https://pixabay.com/es/users/photos_greg-21117672/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=7131255) en [Pixabay](https://pixabay.com/es//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=7131255).
