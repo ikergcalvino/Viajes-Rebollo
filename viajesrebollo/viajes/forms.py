@@ -6,7 +6,7 @@ from django.core.validators import URLValidator
 
 def validate_google_maps_url(value):
     if not value.startswith("https://www.google.com/maps/place/"):
-        raise ValidationError("La URL debe ser de Google Maps.")
+        raise ValidationError("La URL debe ser de Google Maps, comenzando por 'https://www.google.com/maps/place/' .")
     URLValidator()(value)
 
 
