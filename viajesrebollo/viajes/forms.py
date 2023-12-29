@@ -45,23 +45,32 @@ class NewPackage(forms.ModelForm):
         required=True
     )
 
+    new_activity_button = forms.CharField(
+        max_length=100,
+        required=False,
+        widget=forms.TextInput(attrs={'placeholder': 'Nombre de la nueva actividad'})
+    )
+
     class Meta:
         model = Package
         fields = ['name', 'description', 'activities']
         widgets = {
             'description': forms.Textarea(attrs={'style': 'resize: none;'}),
         }
-        
+
+    def __init__(self, *args, **kwargs):
+        super(NewPackage, self).__init__(*args, **kwargs)
+        self.fields['new_activity_button'].label = 'Crear Nueva Actividad'
 
     def clean(self):
         cleaned_data = super().clean()
         activities = cleaned_data.get("activities")
+        new_activity_button = cleaned_data.get("new_activity_button")
 
-        if not activities:
-            raise ValidationError("Debe seleccionar al menos una actividad.")
+        if not activities and not new_activity_button:
+            raise ValidationError("Debe seleccionar al menos una actividad o crear una nueva.")
 
         return cleaned_data
-
 
 class ModPackage(forms.ModelForm):
     class Meta:

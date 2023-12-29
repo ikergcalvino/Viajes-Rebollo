@@ -6,7 +6,7 @@
 
 <h2>Crear un paquete de actividades</h2>
 
-<form method="POST">
+<form method="POST" action="{% url 'create_package' %}">
 
     {% csrf_token %}
 
@@ -38,6 +38,10 @@
         </ul>
     </div>
 
+    <div class="div-btn-crear-actividad">
+        <a href="{% url 'create_activity2' %}" class="btn-crear-actividad">Crear Nueva Actividad</a>
+    </div>
+
     <div class="botones">
         <button type="button" class="btn-cancelar" href="{% url 'index' %}">Cancelar</button>
         <button type="submit">Guardar</button>
@@ -46,3 +50,4 @@
 </form>
 
 {% endblock %}
+z
