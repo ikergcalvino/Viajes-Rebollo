@@ -12,40 +12,55 @@
     <div>
         <label for="name">Nombre de la actividad:</label>
         {{ form.name }}
+        {% if form.errors.name %}
+            <p class="error">{{ form.errors.name.0 }}</p>
+        {% endif %}
     </div>
 
     <div>
         <label for="description">Descripción:</label>
         {{ form.description }}
+        {% if form.errors.description %}
+            <p class="error">{{ form.errors.description.0 }}</p>
+        {% endif %}
     </div>
 
     <div>
         <label for="price">Precio:</label>
         {{ form.price }}
+        {% if form.errors.price %}
+            <p class="error">{{ form.errors.price.0 }}</p>
+        {% endif %}
     </div>
 
     <div>
         <label for="init_date">Fecha de inicio:</label>
         {{ form.init_date }}
+        {% if form.errors.init_date %}
+            <p class="error">{{ form.errors.init_date.0 }}</p>
+        {% endif %}
     </div>
 
     <div>
         <label for="end_date">Fecha de finalización:</label>
         {{ form.end_date }}
+        {% if form.errors.end_date %}
+            <p class="error">{{ form.errors.end_date.0 }}</p>
+        {% endif %}
     </div>
 
     <div>
         <label for="loc">URL de ubicación:</label>
         {{ form.loc }}
+        {% if form.errors.loc %}
+            <p class="error">{{ form.errors.loc.0 }}</p>
+        {% endif %}
     </div>
 
     <div class="botones">
-
         <a href="{% url 'index' %}" class="btn-cancelar">Cancelar</a>
         <button type="submit">Guardar cambios</button>
     </div>
-
-
 </form>
 
 {% endblock %}
