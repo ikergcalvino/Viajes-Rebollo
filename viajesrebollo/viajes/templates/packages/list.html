@@ -4,23 +4,19 @@
 
 {% block main_content %}
 
-<h2>Lista de paquetes:</h2>
+<h2>Paquetes</h2>
 
 <div>
     {% for package in packages %}
-    <article class="package-container">
-        <h2 id="nombre">
-            {{ package.name }}
-            <a href="{% url 'edit_package' package_id=package.id %}">
-                <i class="fas fa-pencil-alt"></i>
-            </a>
-            <a href="{% url 'see_package' %}">
-                <i class="fas fa-eye"></i>
-            </a>
-        </h2>
-    </article>
+    <div class="list-container">
+        <h3> {{ package.name }} </h3>
+        <h3> {{ package.activities.count }}</h3>
+        <a href="{% url 'index' %}"><i class="fa-solid fa-eye"></i></a>
+        <a href="{% url 'index' %}"><i class="fa-solid fa-pencil"></i></a>
+        <a><i class="fa-solid fa-trash-can"></i></a>
+    </div>
     {% empty %}
-    <p class="no-trip-plans">No hay paquetes disponibles.</p>
+    <h4>No hay paquetes disponibles.</h4>
     {% endfor %}
 </div>
 
