@@ -10,7 +10,37 @@
 
     {% csrf_token %}
 
-    {{ form.as_p }}
+    <div>
+        <label for="id_name">Nombre:</label>
+        {{ form.name }}
+    </div>
+
+    <div>
+        <label for="id_description">Descripción:</label>
+        {{ form.description }}
+    </div>
+
+    <div>
+        <label for="id_package">Paquete:</label>
+        {{ form.package }}
+    </div>
+
+    <div class="dropdown-check-list" tabindex="100">
+        <span class="anchor" onclick="toggleDropdownCheckList('customized_activities')">Seleccionar
+            actividades</span>
+        <ul class="items" id="customized_activities">
+            {% for checkbox in form.customized_activities %}
+            <li>
+                <label>
+                    {{ checkbox.choice_label }}
+                </label>
+                <div class="checkbox-container">
+                    {{ checkbox.tag }}
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
 
     <div class="botones">
         <a href="{% url 'list_trip_plans' %}" class="btn-cancelar">Cancelar</a>

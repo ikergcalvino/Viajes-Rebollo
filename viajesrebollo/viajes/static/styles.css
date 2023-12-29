@@ -382,3 +382,21 @@ textarea {
     margin-top: 10px; /* Puedes ajustar el valor según sea necesario */
     margin-bottom: 10px; /* Puedes ajustar el valor según sea necesario */
 }
+
+
+.list-container {
+margin: 1em;
+border-color: beige;
+border-style:solid;
+border-radius: 8px;
+background-color: beige;
+
+}
+
+.list-container p {
+    color: black;
+    font-size: 15px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
