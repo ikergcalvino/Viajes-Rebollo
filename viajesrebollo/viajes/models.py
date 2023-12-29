@@ -28,9 +28,9 @@ class TripPlan(models.Model):
     date_of_creation = models.DateField(auto_now_add=True)
     package = models.ForeignKey(Package, on_delete=models.CASCADE)
     customized_activities = models.ManyToManyField(Activity, blank=True)
-    
+
     def total_price(self):
         return sum(activity.price for activity in self.customized_activities.all())
-    
+
     def __str__(self):
         return self.name

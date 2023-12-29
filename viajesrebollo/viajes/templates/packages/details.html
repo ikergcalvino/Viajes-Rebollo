@@ -13,7 +13,8 @@
 
 <ul class="activity-list">
     {% for activity in package.activities.all %}
-    <li><a href="{% url 'activity_details' activity.id %}">{{ activity.name }}</a> - {{ activity.description }} - {{ activity.price }}€ - {{ activity.init_date }} - {{ activity.end_date }} - {{ activity.loc }}   
+    <li><a href="{% url 'activity_details' activity.id %}">{{ activity.name }}</a> - {{ activity.description }} - {{
+        activity.price }}€ - {{ activity.init_date }} - {{ activity.end_date }} - {{ activity.loc }}
     </li>
     {% endfor %}
 </ul>

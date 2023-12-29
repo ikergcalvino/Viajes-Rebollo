@@ -18,6 +18,7 @@ def manage_activity(request, activity_id=None):
     template = 'activities/edit.html' if activity_id else 'activities/create.html'
     return render(request, template, {'form': form, 'activity_id': activity_id})
 
+
 def manage_activity2(request, activity_id=None):
     if activity_id:
         activity = get_object_or_404(Activity, pk=activity_id)

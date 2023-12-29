@@ -9,7 +9,7 @@ def validate_google_maps_url(value):
         raise ValidationError("La URL debe ser de Google Maps.")
     URLValidator()(value)
 
-    
+
 class NewActivity(forms.ModelForm):
     loc = forms.URLField(validators=[validate_google_maps_url])
 
@@ -48,7 +48,8 @@ class NewPackage(forms.ModelForm):
     new_activity_button = forms.CharField(
         max_length=100,
         required=False,
-        widget=forms.TextInput(attrs={'placeholder': 'Nombre de la nueva actividad'})
+        widget=forms.TextInput(
+            attrs={'placeholder': 'Nombre de la nueva actividad'})
     )
 
     class Meta:
@@ -68,9 +69,11 @@ class NewPackage(forms.ModelForm):
         new_activity_button = cleaned_data.get("new_activity_button")
 
         if not activities and not new_activity_button:
-            raise ValidationError("Debe seleccionar al menos una actividad o crear una nueva.")
+            raise ValidationError(
+                "Debe seleccionar al menos una actividad o crear una nueva.")
 
         return cleaned_data
+
 
 class ModPackage(forms.ModelForm):
     class Meta:
@@ -123,4 +126,3 @@ class ModTripPlan(forms.ModelForm):
         super(ModTripPlan, self).__init__(*args, **kwargs)
         self.fields['package'].queryset = Package.objects.all()
         self.fields['customized_activities'].queryset = Activity.objects.all()
-

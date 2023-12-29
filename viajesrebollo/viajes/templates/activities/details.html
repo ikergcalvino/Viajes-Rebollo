@@ -21,13 +21,13 @@
 
 <h3>Paquetes que incluyen esta actividad:</h3>
 {% if activity.package_set.all %}
-    <ul>
-        {% for package in activity.package_set.all %}
-            <li>{{ package.name }} </li>
-        {% endfor %}
-    </ul>
+<ul>
+    {% for package in activity.package_set.all %}
+    <li>{{ package.name }} </li>
+    {% endfor %}
+</ul>
 {% else %}
-    <p>Ningún paquete incluye esta actividad.</p>
+<p>Ningún paquete incluye esta actividad.</p>
 {% endif %}
 
 

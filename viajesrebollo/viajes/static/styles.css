@@ -160,14 +160,18 @@ button[type="submit"]:hover {
 .btn-cancelar {
     background-color: #d9534f;
     text-decoration: none;
-    color: #fff; /* Añade color de texto para que sea legible */
-    display: inline-block; /* Hacer que el botón ocupe solo el ancho necesario */
-    padding: 10px 20px; /* Ajusta el relleno según tus preferencias */
+    color: #fff;
+    /* Añade color de texto para que sea legible */
+    display: inline-block;
+    /* Hacer que el botón ocupe solo el ancho necesario */
+    padding: 10px 20px;
+    /* Ajusta el relleno según tus preferencias */
     margin-bottom: 20px;
     border-radius: 4px;
     border: 1px solid #ccc;
-    box-sizing: border-box; /* Hacer que el ancho incluya el borde y el relleno */
-    cursor: pointer; 
+    box-sizing: border-box;
+    /* Hacer que el ancho incluya el borde y el relleno */
+    cursor: pointer;
 }
 
 .btn-cancelar:hover {
@@ -364,8 +368,10 @@ textarea {
     padding: 8px 15px;
     cursor: pointer;
     font-size: 16px;
-    margin-top: 10px; /* Puedes ajustar el valor según sea necesario */
-    margin-bottom: 10px; /* Puedes ajustar el valor según sea necesario */
+    margin-top: 10px;
+    /* Puedes ajustar el valor según sea necesario */
+    margin-bottom: 10px;
+    /* Puedes ajustar el valor según sea necesario */
     text-decoration: none;
 
 }
@@ -379,17 +385,19 @@ textarea {
     padding: 8px 15px;
     cursor: pointer;
     font-size: 16px;
-    margin-top: 10px; /* Puedes ajustar el valor según sea necesario */
-    margin-bottom: 10px; /* Puedes ajustar el valor según sea necesario */
+    margin-top: 10px;
+    /* Puedes ajustar el valor según sea necesario */
+    margin-bottom: 10px;
+    /* Puedes ajustar el valor según sea necesario */
 }
 
 
 .list-container {
-margin: 1em;
-border-color: beige;
-border-style:solid;
-border-radius: 8px;
-background-color: beige;
+    margin: 1em;
+    border-color: beige;
+    border-style: solid;
+    border-radius: 8px;
+    background-color: beige;
 
 }
 
@@ -399,4 +407,3 @@ background-color: beige;
     text-align: center;
     margin-bottom: 5px;
 }
-
