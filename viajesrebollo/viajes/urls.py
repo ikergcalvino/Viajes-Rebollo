@@ -18,6 +18,7 @@ urlpatterns = [
          activity_details, name="activity_details"),
     path("activities/", list_activities, name="list_activities"),
 
+
     path("package/", manage_package, name="create_package"),
     path("package/<int:package_id>/edit/",
          manage_package, name="edit_package"),

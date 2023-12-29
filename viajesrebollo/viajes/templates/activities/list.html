@@ -11,8 +11,8 @@
     <div class="list-container">
         <h3> {{ activity.name }} </h3>
         <h3> {{ activity.price }} </h3>
-        <a href="{% url 'index' %}"><i class="fa-solid fa-eye"></i></a>
-        <a href="{% url 'index' %}"><i class="fa-solid fa-pencil"></i></a>
+        <a href="{% url 'activity_details' activity.id %}"><i class="fa-solid fa-eye"></i></a>
+        <a href="{% url 'edit_activity' activity.id %}"><i class="fa-solid fa-pencil"></i></a>
         <a><i class="fa-solid fa-trash-can"></i></a>
     </div>
     {% empty %}
