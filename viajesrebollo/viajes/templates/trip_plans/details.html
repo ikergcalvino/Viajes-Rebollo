@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'details.css' %}">
+
+
+{% block main_content %}
+
+<h2>{{ trip_plan.name }}</h2>
+
+<p>{{ trip_plan.description }}</p>
+
+<p>Precio: {{ trip_plan.total_price }} €</p>
+
+<h3>Paquete asociado</h3>
+
+<p><a href="{% url 'package_details' package.id %}">{{ package.name }}</a></p>
+
+<h3>Actividades personalizadas</h3>
+
+<ul class="activity-list">
+    {% for activity in activities %}
+    <li><a href="{% url 'activity_details' activity.id %}">{{ activity.name }}</a> - {{ activity.description }} - {{
+        activity.price }}€ - {{ activity.init_date }} - {{ activity.end_date }} - {{ activity.loc }}
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

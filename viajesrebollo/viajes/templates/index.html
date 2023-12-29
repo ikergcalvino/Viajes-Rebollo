@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block main_content %}
+
+<h2>Menú de gestión</h2>
+
+<div class="button-container">
+    <a href="{% url 'create_activity' %}">
+        <i class="fa-solid fa-circle-plus"></i>
+        <h3>Crear nueva actividad</h3>
+    </a>
+    <a href="{% url 'create_package' %}">
+        <i class="fa-solid fa-suitcase"></i>
+        <h3>Crear nuevo paquete de viaje</h3>
+    </a>
+    <a href="{% url 'create_trip_plan' %}">
+        <i class="fa-solid fa-map-location-dot"></i>
+        <h3>Crear plan de viaje</h3>
+    </a>
+</div>
+
+<div class="button-container">
+    <a href="{% url 'list_activities' %}">
+        <i class="fa-solid fa-list-ul"></i>
+        <h3>Listar actividades</h3>
+    </a>
+    <a href="{% url 'list_packages' %}">
+        <i class="fa-solid fa-list-ul"></i>
+        <h3>Listar paquetes</h3>
+    </a>
+    <a href="{% url 'list_trip_plans' %}">
+        <i class="fa-solid fa-list-ul"></i>
+        <h3>Listar planes</h3>
+    </a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main_content %}
+
+<h2>Planes de viaje</h2>
+
+<div>
+    {% for trip_plan in trip_plans %}
+    <div class="list-container">
+        <h3>{{ trip_plan.name }}</h3>
+        <p>{{ trip_plan.description }}</p>
+        <p>{{ trip_plan.package }}</p>
+
+        {% for activity in trip_plan.activities.all %}
+        <p>{{ activity.name }} - {{ activity.price }} €</p>
+        <p> Fecha de inicio de la actividad: {{ activity.init_date }}</p>
+        <p> Fecha de fin de la actividad: {{ activity.end_date }}</p>
+        {% endfor %}
+
+        <p>Fecha de creacion: {{ trip_plan.date_of_creation }}</p>
+
+        <p>Precio: {{ trip_plan.total_price }} €</p>
+
+        <a href="{% url 'trip_plan_details' trip_plan.id %}"><i class="fa-solid fa-eye"></i></a>
+        <a href="{% url 'edit_trip_plan' trip_plan.id %}"><i class="fa-solid fa-pencil"></i></a>
+        <a><i class="fa-solid fa-trash-can"></i></a>
+        <a><i class="fa-solid fa-euro-sign"></i></a>
+        <a><i class="fa-solid fa-credit-card"></i></a>
+        <a><i class="fa-solid fa-file"></i></a>
+    </div>
+    {% empty %}
+    <h4>No hay planes de viaje disponibles.</h4>
+    {% endfor %}
+</div>
+
+{% endblock %}

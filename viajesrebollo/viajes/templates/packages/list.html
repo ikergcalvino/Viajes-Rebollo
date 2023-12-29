@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block main_content %}
+
+<h2>Paquetes</h2>
+
+<div>
+    {% for package in packages %}
+    <div class="list-container">
+        <h3> Paquete: {{ package.name }} </h3>
+        <h3> Número de actividades: {{ package.activities.count }}</h3>
+        <a href="{% url 'package_details' package.id %}"><i class="fa-solid fa-eye"></i></a>
+        <a href="{% url 'edit_package' package.id %}"><i class="fa-solid fa-pencil"></i></a>
+        <a><i class="fa-solid fa-trash-can"></i></a>
+    </div>
+    {% empty %}
+    <h4>No hay paquetes disponibles.</h4>
+    {% endfor %}
+</div>
+
+{% endblock %}

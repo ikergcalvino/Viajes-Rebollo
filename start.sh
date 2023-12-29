@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 python viajesrebollo/manage.py makemigrations
 python viajesrebollo/manage.py migrate

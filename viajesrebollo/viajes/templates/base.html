@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viajes Rebollo</title>
+    <link rel="icon" type="image/png" href="{% static 'vr.png' %}">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="{% url 'index' %}"><img src="{% static 'vr.png' %}" alt="Viajes Rebollo Logo"></a>
+        </div>
+        <div class="header-text">
+            <h1>Viajes Rebollo</h1>
+            <p>Agencia de viajes con más de 30 años de historia en A Coruña</p>
+        </div>
+    </header>
+
+    <main>
+        {% block main_content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p><strong>Viajes Rebollo</strong> - <i> C. Fonseca, 115 15004 </i> - A Coruña</p>
+    </footer>
+
+    <script src="{% static 'scripts.js' %}" async></script>
+    <script src="https://kit.fontawesome.com/ffe9fc53ba.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

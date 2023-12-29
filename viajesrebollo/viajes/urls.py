@@ -1,21 +1,37 @@
+from django.conf.urls.static import static
+from django.conf import settings
 from django.urls import path
-from . import views
+from .views.views import index
+from .views.activities import manage_activity, activity_details, list_activities, manage_activity2
+from .views.packages import manage_package, package_details, list_packages
+from .views.trip_plans import manage_trip_plan, trip_plan_details, list_trip_plans
+
 
 urlpatterns = [
-    path("", views.index, name="index"),
-    path("create_package", views.create_package, name="createpackage"),
-    path("create_activity", views.create_activity, name="createactivity"),
-    path("create_trip_plan", views.create_trip_plan, name="createtripplan"),
-    path('mod_trip_plan/<int:trip_plan_id>/', views.mod_trip_plan, name='modtripplan'),
-    path("mod_activity/<int:activity_id>", views.mod_activity, name="modactivity"),
-    path('mod_package/<int:package_id>/', views.mod_package, name='mod_package'),
+    path("", index, name="index"),
 
-    path('activity/<int:activity_id>/', views.activity_detail, name='activity_detail'),
-    path('package/<int:package_id>/', views.package_detail, name='package_detail'),
-    path("list_trip_plans", views.list_trip_plans, name="listtripplans"),
-    path('trip_plan/<int:trip_plan_id>/', views.trip_plan_detail, name='tripplan_detail'),
+    path("activity/", manage_activity, name="create_activity"),
+    path("activity2/", manage_activity2, name="create_activity2"),
+    path("activity/<int:activity_id>/edit/",
+         manage_activity, name="edit_activity"),
+    path("activity/<int:activity_id>/",
+         activity_details, name="activity_details"),
+    path("activities/", list_activities, name="list_activities"),
 
 
+    path("package/", manage_package, name="create_package"),
+    path("package/<int:package_id>/edit/",
+         manage_package, name="edit_package"),
+    path("package/<int:package_id>/",
+         package_details, name="package_details"),
+    path("packages/", list_packages, name="list_packages"),
 
 
-]
+    path("trip-plan/", manage_trip_plan, name="create_trip_plan"),
+    path("trip-plan/<int:trip_plan_id>/edit/",
+         manage_trip_plan, name="edit_trip_plan"),
+    path("trip-plan/<int:trip_plan_id>/",
+         trip_plan_details, name="trip_plan_details"),
+    path("trip-plans/", list_trip_plans, name="list_trip_plans"),
+
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

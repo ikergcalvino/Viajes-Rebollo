@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block main_content %}
+
+<h2>Modificar Paquete</h2>
+
+<form method="POST" action="{% url 'create_package' %}">
+
+    {% csrf_token %}
+
+    {{ form.non_field_errors }}
+
+    <div>
+        <label for="id_name">Nombre:</label>
+        {{ form.name }}
+    </div>
+
+    <div>
+        <label for="id_description">Descripción:</label>
+        {{ form.description }}
+    </div>
+
+    <div class="dropdown-check-list" tabindex="100">
+        <span class="anchor" onclick="toggleDropdownCheckList('activities')">Seleccionar actividades</span>
+        <ul class="items" id="activities">
+            {% for checkbox in form.activities %}
+            <li>
+                <label>
+                    {{ checkbox.choice_label }}
+                </label>
+                <div class="checkbox-container">
+                    {{ checkbox.tag }}
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="div-btn-crear-actividad">
+        <a href="{% url 'create_activity2' %}" class="btn-crear-actividad">Crear Nueva Actividad</a>
+    </div>
+
+    <div class="botones">
+        <a href="{% url 'list_packages' %}" class="btn-cancelar">Cancelar</a>
+        <button type="submit">Guardar cambios</button>
+    </div>
+
+</form>
+
+{% endblock %}

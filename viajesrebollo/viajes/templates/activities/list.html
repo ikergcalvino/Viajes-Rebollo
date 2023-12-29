@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block main_content %}
+
+<h2>Actividades</h2>
+
+<div>
+    {% for activity in activities %}
+    <div class="list-container">
+        <h3> Actividad: {{ activity.name }} </h3>
+        <h3> Precio: {{ activity.price }} € </h3>
+        <a href="{% url 'activity_details' activity.id %}"><i class="fa-solid fa-eye"></i></a>
+        <a href="{% url 'edit_activity' activity.id %}"><i class="fa-solid fa-pencil"></i></a>
+        <a><i class="fa-solid fa-trash-can"></i></a>
+    </div>
+    {% empty %}
+    <h4>No hay actividades disponibles.</h4>
+    {% endfor %}
+</div>
+
+{% endblock %}
